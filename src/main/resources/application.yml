@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: rpc-rabbbitmq
+  rabbitmq:
+    # use environment variables or default localhost if not set
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:user}
+    password: ${RABBITMQ_PASSWORD:password}
+    virtual-host: ${RABBITMQ_VIRTUAL_HOST:/}
+    host: ${RABBITMQ_HOST:localhost}
+  data:
+    redis:
+      port: ${REDIS_PORT:6379}
+      host: ${REDIS_HOST:localhost}
+
+camel:
+  springboot:
+    main-run-controller: true
+  component:
+    spring-rabbitmq:
+      auto-declare: true
+
